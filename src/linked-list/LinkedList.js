@@ -7,53 +7,37 @@ export default class LinkedList {
     this.count = 0;
   }
 
-  append(value) {
-    let node = new Node(value);
-    if (this.head === null) {
-      this.head = node;
-    } else {
-      let temp = this.head;
-      while (temp.link !== null) {
-        temp = temp.link;
-      }
-      temp.link = node;
-    }
-    this.count++;
-  }
+  insertFirst(value) {}
 
-  get(index) {
-    let temp = this.head;
-    let innerIndex = 0;
-    while (temp !== null) {
-      if (innerIndex === index) {
-        return temp.data;
-      }
-      temp = temp.link;
-      innerIndex++;
-    }
-    return null;
-  }
+  insertLast(value) {}
 
-  remove(data) {
-    let prev = null;
-    let next = this.head;
-    while (next !== null) {
-      if (next.data === data) {
-        if (prev == null) {
-          this.head = next.link;
-        } else {
-          prev.link = next.link;
-        }
-        next.link = null;
-        this.count--;
-        break;
-      }
-      prev = next;
-      next = next.link;
-    }
-  }
+  insertAt(index) {}
 
-  size() {
-    return this.count;
-  }
+  removeFirst() {}
+
+  removeLast() {}
+
+  removeAt(index) {}
+
+  remove(value) {}
+
+  get(index) {}
+
+  getFirst() {}
+
+  getLast() {}
+
+  set(index) {}
+
+  contains(value) {}
+
+  indexOf(value) {}
+
+  size() {}
+
+  toArray() {}
+
+  toString() {}
+
+  clear() {}
 }
