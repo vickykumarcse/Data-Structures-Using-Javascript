@@ -1,0 +1,38 @@
+{
+  "name": "data-structures-using-javascript",
+  "version": "1.0.0",
+  "description": "data structures implemented on JavaScript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vickykumarcse/Data-Structures-Using-Javascript.git"
+  },
+  "keywords": [
+    "computer-science",
+    "cs",
+    "data-structures",
+    "javascript",
+    "linked-list",
+    "circular-linked-list",
+    "stack",
+    "queue",
+    "double-linked-list",
+    "tree",
+    "graph",
+    "hashtable",
+    "interview",
+    "interview-preparation"
+  ],
+  "author": "Vicky Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vickykumarcse/Data-Structures-Using-Javascript/issues"
+  },
+  "homepage": "https://github.com/vickykumarcse/Data-Structures-Using-Javascript#readme"
+}
