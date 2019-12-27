@@ -7,7 +7,16 @@ export default class LinkedList {
     this.count = 0;
   }
 
+  /**
+   *
+   *
+   * @param {*} value
+   * @memberof LinkedList
+   */
   insertFirst(value) {
+    if (!value) {
+      throw new Error('Missing Value: Please provide a value to insert');
+    }
     const node = new Node(value);
     if (this.head === null) {
       this.head = node;
@@ -19,7 +28,16 @@ export default class LinkedList {
     this.count++;
   }
 
+  /**
+   *
+   *
+   * @param {*} value
+   * @memberof LinkedList
+   */
   insertLast(value) {
+    if (!value) {
+      throw new Error('Missing Value: Please provide a value to insert');
+    }
     const node = new Node(value);
     if (this.head === null) {
       this.head = node;
@@ -31,10 +49,23 @@ export default class LinkedList {
     this.count++;
   }
 
+  /**
+   *
+   *
+   * @param {*} index
+   * @param {*} value
+   * @memberof LinkedList
+   */
   insertAt(index, value) {
-    if (index <= 0) {
+    if (index === undefined || index < 0 || index > this.count) {
+      throw new Error('Invalid Index: Please provide a valid index');
+    }
+    if (!value) {
+      throw new Error('Missing Value: Please provide a value to insert');
+    }
+    if (index === 0) {
       this.insertFirst(value);
-    } else if (index >= this.count) {
+    } else if (index === this.count) {
       this.insertLast(value);
     } else {
       const node = new Node(value);
@@ -53,18 +84,40 @@ export default class LinkedList {
     }
   }
 
+  /**
+   *
+   *
+   * @returns value || null
+   * @memberof LinkedList
+   */
   getFirst() {
     return this.head ? this.head.value : null;
   }
 
+  /**
+   *
+   *
+   * @returns value || null
+   * @memberof LinkedList
+   */
   getLast() {
     return this.tail ? this.tail.value : null;
   }
 
+  /**
+   *
+   *
+   * @param {*} index
+   * @returns value || null
+   * @memberof LinkedList
+   */
   get(index) {
-    if (index <= 0) {
+    if (index === undefined || index < 0 || index > this.count - 1) {
+      return null;
+    }
+    if (index === 0) {
       return this.getFirst();
-    } else if (index >= this.count - 1) {
+    } else if (index === this.count - 1) {
       return this.getLast();
     } else {
       let tempNode = this.head;
@@ -80,13 +133,20 @@ export default class LinkedList {
     }
   }
 
+  /**
+   *
+   *
+   * @param {*} index
+   * @param {*} value
+   * @returns previous value || null
+   * @memberof LinkedList
+   */
   set(index, value) {
-    let previousValue = null;
-    if (index < 0 || index > this.count - 1) {
-      throw new Error(
-        'Invalid index: Index is out of bound for the Linked List'
-      );
-    } else {
+    if (index === undefined || index < 0 || index > this.count - 1) {
+      throw new Error('Index Out of Bound: Please provide a valid index');
+    }
+    if (this.head !== null) {
+      let previousValue = null;
       let tempNode = this.head;
       let counter = 0;
       while (tempNode !== null) {
@@ -98,10 +158,19 @@ export default class LinkedList {
       }
       previousValue = tempNode.value;
       tempNode.value = value;
+      return previousValue;
+    } else {
+      return null;
     }
-    return previousValue;
   }
 
+  /**
+   *
+   *
+   * @param {*} value
+   * @returns true || false
+   * @memberof LinkedList
+   */
   contains(value) {
     let tempNode = this.head;
     while (tempNode !== null) {
@@ -113,6 +182,13 @@ export default class LinkedList {
     return false;
   }
 
+  /**
+   *
+   *
+   * @param {*} value
+   * @returns index || -1
+   * @memberof LinkedList
+   */
   indexOf(value) {
     let counter = 0;
     let tempNode = this.head;
@@ -126,6 +202,12 @@ export default class LinkedList {
     return -1;
   }
 
+  /**
+   *
+   *
+   * @returns Deleted Value || null
+   * @memberof LinkedList
+   */
   removeFirst() {
     if (this.head) {
       const value = this.head.value;
@@ -139,6 +221,12 @@ export default class LinkedList {
     return null;
   }
 
+  /**
+   *
+   *
+   * @returns Deleted Value || null
+   * @memberof LinkedList
+   */
   removeLast() {
     let deletedValue = null;
     if (this.head === this.tail) {
@@ -158,13 +246,23 @@ export default class LinkedList {
     return deletedValue;
   }
 
+  /**
+   *
+   *
+   * @param {*} index
+   * @returns Deleted Value || null
+   * @memberof LinkedList
+   */
   removeAt(index) {
-    let deletedValue = null;
-    if (index <= 0) {
+    if (index === undefined || index < 0 || index > this.count - 1) {
+      return null;
+    }
+    if (index === 0) {
       return this.removeFirst();
-    } else if (index >= this.count - 1) {
+    } else if (index === this.count - 1) {
       return this.removeLast();
     } else {
+      let deletedValue = null;
       let counter = 0;
       let tempNode = this.head;
       while (tempNode !== null) {
@@ -181,40 +279,50 @@ export default class LinkedList {
     }
   }
 
+  /**
+   *
+   *
+   * @param {*} value
+   * @returns Deleted Value || null
+   * @memberof LinkedList
+   */
   remove(value) {
-    if (this.head && this.head.value === value) {
-      return this.removeFirst();
-    } else if (this.tail && this.tail.value === value) {
-      return this.removeLast();
-    } else {
-      if (this.head) {
-        let tempNode = this.head;
-        while (tempNode.next !== null) {
-          if (tempNode.next.value === value) {
-            break;
-          }
-          tempNode = tempNode.next;
-        }
-        if (tempNode.next !== null) {
-          tempNode.next = tempNode.next.next;
-          this.count = this.count > 0 ? this.count - 1 : 0;
-          return value;
-        }
+    if (this.head) {
+      if (this.head.value === value) {
+        return this.removeFirst();
       }
-      return null;
+      let tempNode = this.head;
+      while (tempNode.next !== null) {
+        if (tempNode.next.value === value) {
+          break;
+        }
+        tempNode = tempNode.next;
+      }
+      if (tempNode.next !== null) {
+        tempNode.next = tempNode.next.next;
+        this.count = this.count > 0 ? this.count - 1 : 0;
+        return value;
+      }
     }
+    return null;
   }
 
+  /**
+   *
+   *
+   * @returns size
+   * @memberof LinkedList
+   */
   size() {
     return this.count;
   }
 
-  clear() {
-    this.head = null;
-    this.tail = null;
-    this.count = 0;
-  }
-
+  /**
+   *
+   *
+   * @returns Array representation of Linked List
+   * @memberof LinkedList
+   */
   toArray() {
     const list = [];
     let tempNode = this.head;
@@ -225,11 +333,34 @@ export default class LinkedList {
     return list;
   }
 
+  /**
+   *
+   *
+   * @returns String representation of Linked List
+   * @memberof LinkedList
+   */
   toString() {
     const list = this.toArray();
     return list.map(node => node.toString()).toString();
   }
 
+  /**
+   *
+   * Deletes the whole Linked List
+   * @memberof LinkedList
+   */
+  clear() {
+    this.head = null;
+    this.tail = null;
+    this.count = 0;
+  }
+
+  /**
+   *
+   *
+   * @returns Reversed Linked List
+   * @memberof LinkedList
+   */
   reverse() {
     if (this.head === null || this.head.next === null) {
       return this;
