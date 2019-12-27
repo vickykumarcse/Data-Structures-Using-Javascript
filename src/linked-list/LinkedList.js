@@ -8,8 +8,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} value
    * @memberof LinkedList
    */
@@ -29,8 +27,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} value
    * @memberof LinkedList
    */
@@ -50,8 +46,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} index
    * @param {*} value
    * @memberof LinkedList
@@ -85,8 +79,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns value || null
    * @memberof LinkedList
    */
@@ -95,8 +87,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns value || null
    * @memberof LinkedList
    */
@@ -105,8 +95,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} index
    * @returns value || null
    * @memberof LinkedList
@@ -134,8 +122,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} index
    * @param {*} value
    * @returns previous value || null
@@ -165,8 +151,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} value
    * @returns true || false
    * @memberof LinkedList
@@ -183,8 +167,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} value
    * @returns index || -1
    * @memberof LinkedList
@@ -203,8 +185,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns Deleted Value || null
    * @memberof LinkedList
    */
@@ -222,8 +202,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns Deleted Value || null
    * @memberof LinkedList
    */
@@ -247,8 +225,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} index
    * @returns Deleted Value || null
    * @memberof LinkedList
@@ -280,8 +256,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @param {*} value
    * @returns Deleted Value || null
    * @memberof LinkedList
@@ -308,8 +282,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns size
    * @memberof LinkedList
    */
@@ -318,8 +290,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns Array representation of Linked List
    * @memberof LinkedList
    */
@@ -334,8 +304,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns String representation of Linked List
    * @memberof LinkedList
    */
@@ -345,7 +313,6 @@ export default class LinkedList {
   }
 
   /**
-   *
    * Deletes the whole Linked List
    * @memberof LinkedList
    */
@@ -356,8 +323,6 @@ export default class LinkedList {
   }
 
   /**
-   *
-   *
    * @returns Reversed Linked List
    * @memberof LinkedList
    */

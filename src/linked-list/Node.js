@@ -4,6 +4,11 @@ export default class Node {
     this.next = next;
   }
 
+  /**
+   * @param {*} callback optional
+   * @returns String representation of the node
+   * @memberof Node
+   */
   toString(callback) {
     return callback ? callback(this.value) : `${this.value}`;
   }
