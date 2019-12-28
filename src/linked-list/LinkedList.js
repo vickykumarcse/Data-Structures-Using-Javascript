@@ -11,9 +11,9 @@ export default class LinkedList {
    * @param {*} value
    * @memberof LinkedList
    */
-  insertFirst(value) {
+  addFirst(value) {
     if (!value) {
-      throw new Error('Missing Value: Please provide a value to insert');
+      throw new Error('Missing Value: Please provide a value to add');
     }
     const node = new Node(value);
     if (this.head === null) {
@@ -30,9 +30,9 @@ export default class LinkedList {
    * @param {*} value
    * @memberof LinkedList
    */
-  insertLast(value) {
+  addLast(value) {
     if (!value) {
-      throw new Error('Missing Value: Please provide a value to insert');
+      throw new Error('Missing Value: Please provide a value to add');
     }
     const node = new Node(value);
     if (this.head === null) {
@@ -50,17 +50,17 @@ export default class LinkedList {
    * @param {*} value
    * @memberof LinkedList
    */
-  insertAt(index, value) {
+  addAt(index, value) {
     if (index === undefined || index < 0 || index > this.count) {
       throw new Error('Invalid Index: Please provide a valid index');
     }
     if (!value) {
-      throw new Error('Missing Value: Please provide a value to insert');
+      throw new Error('Missing Value: Please provide a value to add');
     }
     if (index === 0) {
-      this.insertFirst(value);
+      this.addFirst(value);
     } else if (index === this.count) {
-      this.insertLast(value);
+      this.addLast(value);
     } else {
       const node = new Node(value);
       let counter = 0;
@@ -304,12 +304,13 @@ export default class LinkedList {
   }
 
   /**
+   * @param {*} callback
    * @returns String representation of Linked List
    * @memberof LinkedList
    */
-  toString() {
+  toString(callback) {
     const list = this.toArray();
-    return list.map(node => node.toString()).toString();
+    return list.map(node => node.toString(callback)).toString();
   }
 
   /**
