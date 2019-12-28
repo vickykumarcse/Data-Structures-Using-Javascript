@@ -9,24 +9,19 @@ You can directly run the particular data structure on browser, else you can use 
 ```
 
 **Install all dependencies**
+
 ```
 npm install
 ```
 
-**Run ESLint**
-
-You may want to run it to check code quality.
-
-```
-npm run lint
-```
-
 **Run all tests**
+
 ```
 npm test
 ```
 
 **Run tests by name**
+
 ```
 npm test -- 'LinkedList'
 ```

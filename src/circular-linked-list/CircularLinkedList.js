@@ -187,7 +187,6 @@ export default class CircularLinkedList {
     if (this.head) {
       const deletedValue = this.head.value;
       if (this.head === this.tail) {
-        this.head.next = null;
         this.clear();
       } else {
         this.head = this.head.next;
@@ -207,7 +206,6 @@ export default class CircularLinkedList {
     if (this.head) {
       const deletedValue = this.tail.value;
       if (this.head === this.tail) {
-        this.head.next = null;
         this.clear();
       } else {
         let tempNode = this.head;
@@ -324,6 +322,9 @@ export default class CircularLinkedList {
    */
   clear() {
     this.head = null;
+    if (this.tail) {
+      this.tail.next = null;
+    }
     this.tail = null;
     this.count = 0;
   }
